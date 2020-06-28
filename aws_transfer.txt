@@ -1,0 +1,32 @@
+
+https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html
+
+Migrating users from an existing SFTP server to AWS Transfer.
+-can replace default host key with a host key from another server if moving existing users from an existing SFTP server to new AWS SFTP server
+  -this prevents users from getting notified to verify authenticity of SFTP server again
+  
+Creating an IAM role for AWS Transfer Family:
+
+You will need to supply an IAM Role when setting up your user. The role determines what resources (Amazon S3 bucket) you want to allow your user to 
+access and which operations they can (and cannot perform). We recommend that you use the role for Amazon S3 bucket selection and file operations management. 
+If you want to allocate portions of the bucket to the user for e.g. home directory, we recommend using scope down policy.
+
+All roles used for the service must trust "transfer.amazonaws.com".
+
+An optional IAM "scope down" IAM policy lets you use the same role across multiple users when your users have the same access privileges but to different 
+portions of your S3 bucket, e.g., only to their home directory. You can use the following policy variables: [transfer:UserName], [transfer:HomeBucket] 
+and [transfer:HomeDirectory] in your IAM policy. When your user authenticates into the service, these variables are replaced with the appropriate values 
+for the user. This makes it easier to apply the exact same policy documents to multiple users, reducing the overhead of IAM role and policy management for 
+managing your users' access to your Amazon S3 bucket.
+
+Note that these variables may only be used in the scope-down policy, and only for this service. They cannot be used in IAM Policies attached to the user's Role 
+or for any other service.
+
+We recommend that you use the policy editor in the IAM Console, save the policy there and select it here.
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
+https://docs.aws.amazon.com/transfer/latest/userguide/requirements-roles.html
+
+S3 access Policy
+
+-can set Restricted - User cannot access anything outside of that folder
