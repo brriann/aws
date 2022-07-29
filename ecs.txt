@@ -1,0 +1,10 @@
+NEED TO: deploy multiple containers to ECS, via docker-compose
+(eg, a NestJS/Node container, and a Redis container)
+
+https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/application.html
+https://stackoverflow.com/questions/47046517/deploying-multiple-docker-containers-to-aws-ecs
+https://stackoverflow.com/questions/63563147/how-to-deploy-multiple-services-to-aws-ecs
+https://docs.docker.com/cloud/ecs-integration/
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+https://stackoverflow.com/questions/63535016/multiple-containers-in-one-ecs-cluster
+
